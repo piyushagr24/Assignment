@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: devops-assignment
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: devops-assignment
+
+  template:
+    metadata:
+      labels:
+        app: devops-assignment
+
+    spec:
+      containers:
+        - name: devops-assignment
+          image: devops-assignment:latest
+
+          imagePullPolicy: Never
+
+          ports:
+            - containerPort: 80
